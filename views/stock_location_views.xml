@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Stock Location Form View -->
+    <record id="view_inventory_stock_location_form" model="ir.ui.view">
+        <field name="name">inventory.stock.location.form</field>
+        <field name="model">inventory.stock.location</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_stock" type="object"
+                                class="oe_stat_button" icon="fa-cubes">
+                            <field name="product_count" string="Products" widget="statinfo"/>
+                        </button>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="code"/>
+                            <field name="warehouse_id"/>
+                            <field name="parent_id"/>
+                        </group>
+                        <group>
+                            <field name="usage"/>
+                            <field name="active"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Additional Information">
+                            <group>
+                                <field name="comment"/>
+                            </group>
+                        </page>
+                        <page string="Products">
+                            <field name="product_ids">
+                                <list>
+                                    <field name="name"/>
+                                    <field name="code"/>
+                                    <field name="quantity"/>
+                                    <field name="uom_id"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Stock Location list View -->
+    <record id="view_inventory_stock_location_list" model="ir.ui.view">
+        <field name="name">inventory.stock.location.list</field>
+        <field name="model">inventory.stock.location</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="warehouse_id"/>
+                <field name="usage"/>
+                <field name="product_count"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Stock Location Search View -->
+    <record id="view_inventory_stock_location_search" model="ir.ui.view">
+        <field name="name">inventory.stock.location.search</field>
+        <field name="model">inventory.stock.location</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="warehouse_id"/>
+                <filter string="Internal Location" name="internal" domain="[('usage','=','internal')]"/>
+                <filter string="Active" name="active" domain="[('active','=',True)]"/>
+                <filter string="Archived" name="inactive" domain="[('active','=',False)]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Warehouse" name="warehouse" context="{'group_by':'warehouse_id'}"/>
+                    <filter string="Usage" name="usage" context="{'group_by':'usage'}"/>
+                    <filter string="Company" name="company" context="{'group_by':'company_id'}" groups="base.group_multi_company"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Stock Location Action -->
+    <record id="action_inventory_stock_location" model="ir.actions.act_window">
+        <field name="name">Stock Locations</field>
+        <field name="res_model">inventory.stock.location</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_inventory_stock_location_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first stock location!
+            </p>
+        </field>
+    </record>
+</odoo>

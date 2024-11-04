@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Stock Movement Sequence -->
+        <record id="seq_stock_movement" model="ir.sequence">
+            <field name="name">Stock Movement Sequence</field>
+            <field name="code">inventory.stock.movement</field>
+            <field name="prefix">SM/%(year)s/%(month)s/</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <!-- Stock Adjustment Sequence -->
+        <record id="seq_stock_adjustment" model="ir.sequence">
+            <field name="name">Stock Adjustment Sequence</field>
+            <field name="code">inventory.stock.adjustment</field>
+            <field name="prefix">ADJ/%(year)s/%(month)s/</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <!-- Reorder Alert Sequence -->
+        <record id="seq_reorder_alert" model="ir.sequence">
+            <field name="name">Reorder Alert Sequence</field>
+            <field name="code">inventory.reorder.alert</field>
+            <field name="prefix">RA/%(year)s/%(month)s/</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <!-- Stock Transfer Sequence -->
+        <record id="seq_stock_transfer" model="ir.sequence">
+            <field name="name">Stock Transfer Sequence</field>
+            <field name="code">inventory.stock.transfer</field>
+            <field name="prefix">TR/%(year)s/%(month)s/</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <!-- Product Code Sequence -->
+        <record id="seq_product_code" model="ir.sequence">
+            <field name="name">Product Code Sequence</field>
+            <field name="code">inventory.product.code</field>
+            <field name="prefix">PROD/</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <!-- Location Code Sequence -->
+        <record id="seq_location_code" model="ir.sequence">
+            <field name="name">Location Code Sequence</field>
+            <field name="code">inventory.location.code</field>
+            <field name="prefix">LOC/</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+    </data>
+</odoo>

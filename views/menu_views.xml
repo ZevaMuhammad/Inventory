@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Main Menu -->
+    <menuitem 
+        id="menu_inventory_root"
+        name="Inventory"
+        web_icon="inventory,static/description/icon.png"
+        sequence="10"/>
+
+    <!-- Operations Menu -->
+    <menuitem 
+        id="menu_inventory_operations"
+        name="Operations"
+        parent="menu_inventory_root"
+        sequence="10"/>
+
+        <menuitem 
+            id="menu_stock_moves"
+            name="Stock Moves"
+            action="action_inventory_stock_move"
+            parent="menu_inventory_operations"
+            sequence="10"/>
+
+    <!-- Master Data Menu -->
+    <menuitem 
+        id="menu_inventory_master"
+        name="Master Data"
+        parent="menu_inventory_root"
+        sequence="20"/>
+
+        <menuitem 
+            id="menu_warehouses"
+            name="Warehouses"
+            action="action_inventory_warehouse"
+            parent="menu_inventory_master"
+            sequence="10"/>
+
+        <menuitem 
+            id="menu_stock_locations"
+            name="Stock Locations"
+            action="action_inventory_stock_location"
+            parent="menu_inventory_master"
+            sequence="20"/>
+
+        <menuitem 
+            id="menu_products"
+            name="Products"
+            action="action_inventory_product"
+            parent="menu_inventory_master"
+            sequence="30"/>
+
+        <menuitem 
+            id="menu_product_categories"
+            name="Product Categories"
+            action="action_inventory_product_category"
+            parent="menu_inventory_master"
+            sequence="40"/>
+
+    <!-- Inventory Control Menu -->
+    <menuitem 
+        id="menu_inventory_control"
+        name="Inventory Control"
+        parent="menu_inventory_root"
+        sequence="30"/>
+
+        <menuitem 
+            id="menu_reorder_alerts"
+            name="Reorder Alerts"
+            action="action_inventory_reorder_alert"
+            parent="menu_inventory_control"
+            sequence="10"/>
+
+    <!-- Reporting Menu -->
+    <menuitem 
+        id="menu_inventory_reporting"
+        name="Reporting"
+        parent="menu_inventory_root"
+        sequence="40"/>
+
+        <menuitem 
+            id="menu_inventory_reports"
+            name="Inventory Reports"
+            action="action_inventory_report"
+            parent="menu_inventory_reporting"
+            sequence="10"/>
+
+        <menuitem 
+            id="menu_product_movement_reports"
+            name="Product Movements"
+            action="action_product_movement_report"
+            parent="menu_inventory_reporting"
+            sequence="20"/>
+
+    <!-- Configuration Menu -->
+    <menuitem 
+        id="menu_inventory_configuration"
+        name="Configuration"
+        parent="menu_inventory_root"
+        sequence="100"
+        groups="inventory_group_manager"/>
+</odoo>

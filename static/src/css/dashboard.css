@@ -1,0 +1,50 @@
+/* Inventory Management Module Styles */
+
+.inventory-dashboard {
+    padding: 20px;
+}
+
+.inventory-card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.inventory-card h3 {
+    margin-top: 0;
+    color: #4a4a4a;
+}
+
+.inventory-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.inventory-table th, .inventory-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.inventory-table th {
+    background-color: #f2f2f2;
+}
+
+.low-stock {
+    color: #ff0000;
+}
+
+.btn-inventory {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-inventory:hover {
+    background-color: #0056b3;
+}

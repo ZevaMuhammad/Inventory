@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Product Form View -->
+    <record id="view_inventory_product_form" model="ir.ui.view">
+        <field name="name">inventory.product.form</field>
+        <field name="model">inventory.product</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_stock_locations" type="object"
+                                class="oe_stat_button" icon="fa-map-marker">
+                            <field name="total_quantity" string="On Hand" widget="statinfo"/>
+                        </button>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="code"/>
+                            <field name="category_id"/>
+                            <field name="uom_id"/>
+                        </group>
+                        <group>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Description">
+                            <field name="description"/>
+                        </page>
+                        <page string="Stock Locations">
+                            <field name="stock_location_ids"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Product list View -->
+    <record id="view_inventory_product_list" model="ir.ui.view">
+        <field name="name">inventory.product.list</field>
+        <field name="model">inventory.product</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="category_id"/>
+                <field name="total_quantity"/>
+                <field name="uom_id"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Product Search View -->
+    <record id="view_inventory_product_search" model="ir.ui.view">
+        <field name="name">inventory.product.search</field>
+        <field name="model">inventory.product</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="category_id"/>
+                <filter string="Active" name="active" domain="[('active','=',True)]"/>
+                <filter string="Archived" name="inactive" domain="[('active','=',False)]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Category" name="category" context="{'group_by':'category_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Product Action -->
+    <record id="action_inventory_product" model="ir.actions.act_window">
+        <field name="name">Products</field>
+        <field name="res_model">inventory.product</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_inventory_product_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first product!
+            </p>
+        </field>
+    </record>
+</odoo>

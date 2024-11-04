@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="inventory_management.Dashboard">
+        <div class="inventory-dashboard">
+            <h2>Inventory Dashboard</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="inventory-card">
+                        <h3>Total Products</h3>
+                        <p class="total-products">Loading...</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="inventory-card">
+                        <h3>Low Stock Products</h3>
+                        <p class="low-stock-products">Loading...</p>
+                    </div>
+                </div>
+                <!-- Add more dashboard cards as needed -->
+            </div>
+            <button class="btn btn-primary btn-refresh">Refresh</button>
+            <button class="btn btn-secondary btn-generate-report">Generate Report</button>
+        </div>
+    </t>
+</templates>

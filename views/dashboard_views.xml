@@ -1,0 +1,56 @@
+<odoo>
+    <data>
+
+        <!-- Product Form View -->
+        <record id="view_inventory_product_form" model="ir.ui.view">
+            <field name="name">inventory.product.form</field>
+            <field name="model">inventory.product</field>
+            <field name="arch" type="xml">
+                <form string="Product">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="code"/>
+                            <field name="category_id"/>
+                            <field name="uom_id"/>
+                            <field name="description"/>
+                            <field name="active"/>
+                        </group>
+                        <group>
+                            <field name="stock_location_ids" widget="many2many_tags"/>
+                            <field name="total_quantity" readonly="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Product Tree View -->
+        <record id="view_inventory_product_tree" model="ir.ui.view">
+            <field name="name">inventory.product.tree</field>
+            <field name="model">inventory.product</field>
+            <field name="arch" type="xml">
+                <tree string="Products">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="category_id"/>
+                    <field name="uom_id"/>
+                    <field name="total_quantity"/>
+                    <field name="active"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Action for Products -->
+        <record id="action_inventory_product" model="ir.actions.act_window">
+            <field name="name">Products</field>
+            <field name="res_model">inventory.product</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_inventory_product_tree"/>
+        </record>
+
+        <!-- Menu Item for Products -->
+        <menuitem id="menu_inventory_product" name="Products" parent="inventory.menu_inventory_root" action="action_inventory_product"/>
+
+    </data>
+</odoo>
